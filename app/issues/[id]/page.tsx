@@ -9,7 +9,6 @@ const issueDetails = async ({ params }: { params: { id: string } }) => {
   const issue = await prisma.issue.findUnique({
     where: { id: parseInt(id) },
   });
-
   if (!issue) return notFound();
   return (
     <div>
