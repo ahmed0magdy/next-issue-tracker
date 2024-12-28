@@ -4,7 +4,11 @@ import { notFound } from "next/navigation";
 import EditIssueButton from "./EditIssueButton";
 import IssueDetails from "./IssueDetails";
 
-const issueDetailPage = async ({ params }: { params: { id: string } }) => {
+const issueDetailPage = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
   const { id } = await params;
   const issue = await prisma.issue.findUnique({
     where: { id: parseInt(id) },
