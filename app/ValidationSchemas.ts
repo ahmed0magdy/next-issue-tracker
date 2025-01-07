@@ -12,6 +12,5 @@ export const EditIssueSchema = z.object({
     .min(1, "Description is required")
     .max(65535)
     .optional(),
-  userId: z.string().min(1, "User is required").max(255).optional().nullable(), //null used for unassignable
-  // userId: z.string().min(1, "User is required").regex(/^\d+$/).max(10).optional().nullable(),
+  userId: z.string().min(1, "User is required").max(255).optional().nullable(),
 });
