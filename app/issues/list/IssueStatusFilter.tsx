@@ -14,7 +14,9 @@ const IssueStatusFilter = () => {
     <Select.Root
       defaultValue={searchParams.get("status") || ""}
       onValueChange={(status) => {
-        const query = status && status !== "all" ? `?status=${status}` : "";
+        const params = new URLSearchParams();
+        if (status && status !== "all") params.append("status", status);
+        const query = params.size ? "?" + params.toString() : "";
         router.push("/issues/list" + query);
       }}
     >
