@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Issue Tracker
+
+A modern issue tracking application built with Next.js, Prisma, and NextAuth.js.
+
+## Features
+
+- User authentication with Google Sign-in
+- Create, read, update, and delete issues
+- Assign issues to users
+- Real-time validation
+- Responsive design with Tailwind CSS
+- Protected routes with middleware
+- Database integration with Prisma
+
+## Tech Stack
+
+- Next.js 15
+- TypeScript
+- Prisma ORM
+- MySQL Database
+- NextAuth.js for authentication
+- Tailwind CSS
+- Zod for validation
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. `cd next-issue-tracker`
+
+3. Install dependencies:
+   `npm install`
+
+4. Set up environment variables: Create a .env file with the following variables:
+
+```
+   DATABASE_URL="your-mysql-connection-string"
+   GOOGLE_CLIENT_ID="your-google-client-id"
+   GOOGLE_CLIENT_SECRET="your-google-client-secret"
+   NEXTAUTH_URL="http://localhost:3000"
+   NEXTAUTH_SECRET="your-nextauth-secret"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Run database migrations:
+   `npx prisma migrate dev`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+6. Start the development server:
+   `npm run dev`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## API Endpoints
 
-## Learn More
+- GET /api/issues - Get all issues
+- POST /api/issues - Create a new issue
+- PATCH /api/issues/[id] - Update an issue
+- DELETE /api/issues/[id] - Delete an issue
+- GET /api/users - Get all users
+- Authentication
 
-To learn more about Next.js, take a look at the following resources:
+  The application uses Google OAuth for authentication. Protected routes include:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  -/issues/new
+  -/issues/edit/:id
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Database Schema
 
-## Deploy on Vercel
+The application uses the following main models:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- User
+- Issue
+- VerificationToken
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
