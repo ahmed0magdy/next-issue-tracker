@@ -22,6 +22,15 @@ const IssueDetails = ({ issue }: { issue: Issue }) => {
       toast.error("Changes could not be saved");
     }
   };
+    // const mutation = useMutation({
+    //   mutationFn: (newStatus: Status) =>
+    //     axios.patch(`/api/issues/${issue.id}`, {
+    //       status: newStatus,
+    //     }),
+    //   onSuccess: (_, newStatus) => {
+    //     setStatusState(newStatus);
+    //   },
+    // });
 
   return (
     <Box>
