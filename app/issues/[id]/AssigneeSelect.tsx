@@ -12,8 +12,7 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
   if (error) return null;
 
   const assignIssue = (userId: string) => {
-    axios
-      .patch("/api/issues/" + issue.id, {
+    axios.patch("/api/issues/" + issue.id, {
         userId: userId == "unassign" ? null : userId,
       })
       .catch(() => toast.error("Changes could not be saved"));
